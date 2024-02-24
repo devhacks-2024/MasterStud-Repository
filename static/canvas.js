@@ -74,8 +74,12 @@ function optimize() {
                     const furniture = furnitureDetails[optimizeCount];
 
                     const coordinates = furniture.coordinates;
+                    const tag = furniture.tag;
                     const width = coordinates[1].x - coordinates[0].x;
                     const height = coordinates[1].y - coordinates[0].y;
+
+                    ctx.font = "$Arial"
+                    ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
                     ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
                     optimizeCount++;
                 }
@@ -93,8 +97,12 @@ function optimize() {
         const furniture = furnitureDetails[optimizeCount];
 
         const coordinates = furniture.coordinates;
+        const tag = furniture.tag;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
+
+        ctx.font = "$Arial"
+        ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
         optimizeCount++;
     }
