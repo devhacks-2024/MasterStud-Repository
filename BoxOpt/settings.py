@@ -123,7 +123,7 @@ STATIC_URL = 'static/'
 # When DEBUG = True, static files will be directly served from there by 
 # the manage.py runserver command
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "main", "templates", "static"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 # Default primary key field type
