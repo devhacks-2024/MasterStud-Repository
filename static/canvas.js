@@ -29,12 +29,39 @@ function draw(object) {
         // // Draw the furniture
         const furnitureDetails = object.furniture_details;
         furnitureDetails.forEach(furniture => {
+        const tag = furniture.tag;
         const coordinates = furniture.coordinates_input;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
+        ctx.font = "$Arial"
+        ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
         });
     }
+}
+
+function generateFurnitureCoordinates(object) {
+    const furnitureDetails = object.furniture_details;
+    var startingX = 10;
+    var startingY = 10;
+    var margins = 10;
+    var counter = 0;
+    furnitureDetails.forEach(furniture => {
+        furniture.coordinates_input.push({
+            "x": startingX + margins,
+            "y": startingY 
+        })
+        var newStartingX = startingX + margins + furniture.width;
+        var newStartingY = startingY + furniture.length;
+        furniture.coordinates_input.push({
+            "x": newStartingX,
+            "y": newStartingY
+        })
+        counter++;
+        startingX = newStartingX;
+    })
+    
+    return object;
 }
 
 function getVisualInput() {
@@ -48,7 +75,8 @@ function getVisualInput() {
             if (xhr.status == 200) {
                 var content = xhr.responseText;
                 obj = JSON.parse(content);
-                draw(obj)
+                var furnitureProcessed = generateFurnitureCoordinates(obj);
+                draw(furnitureProcessed)
             }
             else if (xhr.status == 500){
                 alert("The server is in maintenance, please try again later")
