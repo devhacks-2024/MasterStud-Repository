@@ -29,42 +29,42 @@
   },
   "furniture_details": [
     {
-      "tag": "koon",
+      "tag": "A",
       "length": 126,
       "width": 60,
       "coordinates": [
       ]
     },
     {
-      "tag": "kos",
+      "tag": "B",
       "length": 15,
       "width": 20,
       "coordinates": [
       ]
     },
     {
-      "tag": "kir",
+      "tag": "C",
       "length": 80,
       "width": 40,
       "coordinates": [
       ]
     },
     {
-      "tag": "pipi",
+      "tag": "D",
       "length": 43,
       "width": 23,
       "coordinates": [
       ]
     },
     {
-      "tag": "dool",
+      "tag": "E",
       "length": 30,
       "width": 42,
       "coordinates": [
       ]
     },
     {
-      "tag": "big_kir",
+      "tag": "F",
       "length": 91,
       "width": 9,
       "coordinates": [
