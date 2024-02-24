@@ -1,12 +1,28 @@
-<h1>Optimizing Ur Room</h1>
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Furniture optimizer</title>
+        <script src="canvas.js"></script>
+    </head>
 
-<div id="fileHandle">
-    <form action="/upload/" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="file">File</label>
-        <input id="file" name="file" type="file" />
-        <button>Upload</button>
-    </form>
-</div>
+    <body>
+        <h1>Optimizing Ur Room</h1>
 
-<div id="visual"></div>
+        <div id="fileHandle">
+          <form action="/upload/" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <label for="file">File</label>
+              <input id="file" name="file" type="file" />
+              <button>Upload</button>
+          </form>
+        </div>
+        
+        <div id="visual">
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+        <!-- Uncomment the following to test draw()
+        Todo: But needs to send request then run draw(object) -->
+        <!-- <button onclick="draw()">Optimize</button> -->
+    </body>
+</html>
