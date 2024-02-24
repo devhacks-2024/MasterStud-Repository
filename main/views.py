@@ -9,5 +9,5 @@ def main(request):
 
 
 def upload_file(request):
-    if request.method == "POST":
-        jsonObj = json.load(request.FILES["file"])
+  if request.method == "POST":
+    jsonObj = json.load(request.FILES["file"])
