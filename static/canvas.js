@@ -19,7 +19,7 @@ function draw(object) {
     
         // const door = object.room_details.door;
         // const doorCoordinates = door.coordinates;
-
+        ctx.strokeStyle = "white";
         ctx.strokeRect(roomCoordinates[0].x, roomCoordinates[0].y, roomWidth, roomHeight);
         
         // // Draw the furniture

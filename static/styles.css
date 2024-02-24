@@ -1,0 +1,18 @@
+canvas {
+  background-color: #3057E1;
+}
+
+#visual {
+  float: left;
+  width: 800px;
+  border: 2px solid black;
+}
+
+#fileHandle {
+  float: left;
+  width: 350px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 2px solid black;
+}
