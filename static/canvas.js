@@ -101,12 +101,15 @@ function optimize() {
             if(xhr.readyState == 4) {
                 if (xhr.status == 200) {
                     var content = xhr.responseText;
-                    obj = JSON.parse(content);
+                    newObj = JSON.parse(content);
+                    for (let index = 0; index < newObj.furniture_details.length; index++) {
+                        obj.furniture_details[index].coordinates_output = newObj.furniture_details[index].coordinates_output;
+                    }
                     const ctx = canvas.getContext("2d");
                     const furnitureDetails = obj.furniture_details;
                     const furniture = furnitureDetails[optimizeCount];
 
-                    const coordinates = furniture.coordinates_output;
+                    var coordinates = furniture.coordinates_output;
                     const tag = furniture.tag;
                     const width = coordinates[1].x - coordinates[0].x;
                     const height = coordinates[1].y - coordinates[0].y;
@@ -117,6 +120,13 @@ function optimize() {
                     ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
                     ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
                     optimizeCount++;
+
+                    //Start a new Path
+                    coordinates = furniture.coordinates_input;
+                    ctx.beginPath();
+                    ctx.moveTo(coordinates[0].x, coordinates[0].y);
+                    ctx.lineTo(coordinates[1].x, coordinates[1].y);
+                    ctx.stroke();
                 }
                 else if (xhr.status == 500){
                     alert("The server is in maintenance, please try again later")
@@ -131,7 +141,7 @@ function optimize() {
         const furnitureDetails = obj.furniture_details;
         const furniture = furnitureDetails[optimizeCount];
 
-        const coordinates = furniture.coordinates_output;
+        var coordinates = furniture.coordinates_output;
         const tag = furniture.tag;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
@@ -141,6 +151,13 @@ function optimize() {
         ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
         ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
+
+        //Start a new Path
+        coordinates = furniture.coordinates_input;
+        ctx.beginPath();
+        ctx.moveTo(coordinates[0].x, coordinates[0].y);
+        ctx.lineTo(coordinates[1].x, coordinates[1].y);
+        ctx.stroke();
         
         optimizeCount++;
     }
