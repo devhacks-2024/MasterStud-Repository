@@ -2,8 +2,8 @@
   "room_details": {
     "room": {
       "coordinates": [
-        {"x": 250, "y": 250},
-        {"x": 500, "y": 500}
+        {"x": 0, "y": 0},
+        {"x": 430, "y": 200}
       ]
     },
     "window": {
@@ -29,21 +29,45 @@
   },
   "furniture_details": [
     {
-      "tag": "bed",
-      "length": 2,
-      "width": 2,
+      "tag": "koon",
+      "length": 126,
+      "width": 60,
       "coordinates": [
-        {"x": 250, "y": 250},
-        {"x": 300, "y": 300}
       ]
     },
     {
-      "tag": "bed",
-      "length": 2,
-      "width": 2,
+      "tag": "kos",
+      "length": 15,
+      "width": 20,
       "coordinates": [
-        {"x": 350, "y": 350},
-        {"x": 450, "y": 500}
+      ]
+    },
+    {
+      "tag": "kir",
+      "length": 80,
+      "width": 40,
+      "coordinates": [
+      ]
+    },
+    {
+      "tag": "pipi",
+      "length": 43,
+      "width": 23,
+      "coordinates": [
+      ]
+    },
+    {
+      "tag": "dool",
+      "length": 30,
+      "width": 42,
+      "coordinates": [
+      ]
+    },
+    {
+      "tag": "big_kir",
+      "length": 91,
+      "width": 9,
+      "coordinates": [
       ]
     }
   ]

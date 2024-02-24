@@ -1,9 +1,10 @@
+{% load static %}
 <!doctype html>
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
         <title>Furniture optimizer</title>
-        <script src="canvas.js"></script>
+        <script src="{% static 'canvas.js' %}"></script>
     </head>
 
     <body>
@@ -23,6 +24,7 @@
         </div>
         <!-- Uncomment the following to test draw()
         Todo: But needs to send request then run draw(object) -->
-        <!-- <button onclick="draw()">Optimize</button> -->
+        <button onclick="getVisualInput()">Visualize Input</button>
+        <button onclick="optimize()">Optimize</button>
     </body>
 </html>
