@@ -29,7 +29,7 @@ function draw(object) {
         // // Draw the furniture
         const furnitureDetails = object.furniture_details;
         furnitureDetails.forEach(furniture => {
-        const coordinates = furniture.coordinates;
+        const coordinates = furniture.coordinates_input;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
@@ -73,7 +73,7 @@ function optimize() {
                     const furnitureDetails = obj.furniture_details;
                     const furniture = furnitureDetails[optimizeCount];
 
-                    const coordinates = furniture.coordinates;
+                    const coordinates = furniture.coordinates_output;
                     const tag = furniture.tag;
                     const width = coordinates[1].x - coordinates[0].x;
                     const height = coordinates[1].y - coordinates[0].y;
@@ -96,7 +96,7 @@ function optimize() {
         const furnitureDetails = obj.furniture_details;
         const furniture = furnitureDetails[optimizeCount];
 
-        const coordinates = furniture.coordinates;
+        const coordinates = furniture.coordinates_output;
         const tag = furniture.tag;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;

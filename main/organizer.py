@@ -13,6 +13,7 @@ def processInput(jsonObj):
     return [furnitureList, room]
 
 def processOutput(output, jsonObj):
+    origFurnitureList = jsonObj['furniture_details']
     furnitureList = []
     for furniture in output:
         coordinate = [
@@ -25,10 +26,12 @@ def processOutput(output, jsonObj):
                 'y' : furniture[1][1]
             }
         ]
-        furnitureJson = {
-            'tag' : furniture[2],
-            'coordinates' : coordinate
-        }
+        target = {}
+        for furnitureJson in origFurnitureList:
+            if (furnitureJson['tag'] == furniture[2]):
+                target = furnitureJson
+                break
+        target['coordinates_output'] = coordinate
         furnitureList.append(furnitureJson)
     
     jsonObj['furniture_details'] = furnitureList
