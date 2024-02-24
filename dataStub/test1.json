@@ -32,42 +32,54 @@
       "tag": "A",
       "length": 126,
       "width": 60,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     },
     {
       "tag": "B",
       "length": 15,
       "width": 20,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     },
     {
       "tag": "C",
       "length": 80,
       "width": 40,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     },
     {
       "tag": "D",
       "length": 43,
       "width": 23,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     },
     {
       "tag": "E",
       "length": 30,
       "width": 42,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     },
     {
       "tag": "F",
       "length": 91,
       "width": 9,
-      "coordinates": [
+      "coordinates_input": [
+      ],
+      "coordinates_output": [
       ]
     }
   ]
