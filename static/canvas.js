@@ -102,9 +102,16 @@ function optimize() {
                 if (xhr.status == 200) {
                     var content = xhr.responseText;
                     newObj = JSON.parse(content);
-                    for (let index = 0; index < newObj.furniture_details.length; index++) {
-                        obj.furniture_details[index].coordinates_output = newObj.furniture_details[index].coordinates_output;
+                    for (let i = 0; i < newObj.furniture_details.length; i++) {
+                        tagName = newObj.furniture_details[i].tag;
+                        for (let j = 0; j < obj.furniture_details.length; j++) {
+                            if (obj.furniture_details[j].tag==tagName) {
+                                newObj.furniture_details[i].coordinates_input = obj.furniture_details[i].coordinates_input;
+                                break;
+                            }
+                        }
                     }
+                    obj = newObj;
                     const ctx = canvas.getContext("2d");
                     const furnitureDetails = obj.furniture_details;
                     const furniture = furnitureDetails[optimizeCount];
