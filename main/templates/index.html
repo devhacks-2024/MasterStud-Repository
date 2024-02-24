@@ -10,7 +10,7 @@
 
     <body>
         <!-- <h1>Optimizing Ur Room</h1> -->        
-        <div class="box" id="visual">
+        <div id="visual">
             <canvas id="canvas" width="800" height="600"></canvas>
             <!-- Uncomment the following to test draw()
             Todo: But needs to send request then run draw(object) -->
@@ -18,10 +18,10 @@
             <button onclick="optimize()">Optimize</button>
         </div>
 
-        <div class="box" id="fileHandle">
+        <div id="fileHandle">
             <form action="/upload/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="file">File</label>
+                <label for="file"></label>
                 <input id="file" name="file" type="file" />
                 <button>Upload</button>
             </form>
