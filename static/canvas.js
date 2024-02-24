@@ -23,7 +23,9 @@ function draw(object) {
     
         // const door = object.room_details.door;
         // const doorCoordinates = door.coordinates;
-        ctx.strokeStyle = "white";
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "white"
+        ctx.fillRect(roomCoordinates[0].x, roomCoordinates[0].y, roomWidth, roomHeight);
         ctx.strokeRect(roomCoordinates[0].x, roomCoordinates[0].y, roomWidth, roomHeight);
         
         // // Draw the furniture
@@ -33,9 +35,12 @@ function draw(object) {
         const coordinates = furniture.coordinates_input;
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
-        ctx.font = "$Arial"
-        ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
+        ctx.font = "Arial"
+        ctx.strokeStyle = "red";
+        ctx.fillStyle = "grey"
+        ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
+        ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         });
     }
 }
@@ -107,6 +112,8 @@ function optimize() {
                     const height = coordinates[1].y - coordinates[0].y;
 
                     ctx.font = "$Arial"
+                    ctx.fillStyle = "grey"
+                    ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
                     ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
                     ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
                     optimizeCount++;
@@ -130,6 +137,8 @@ function optimize() {
         const height = coordinates[1].y - coordinates[0].y;
 
         ctx.font = "$Arial"
+        ctx.fillStyle = "grey"
+        ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
         ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
         
