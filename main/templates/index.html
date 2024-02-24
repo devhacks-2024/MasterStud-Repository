@@ -9,7 +9,14 @@
     <body>
         <h1>Optimizing Ur Room</h1>
 
-        <div id="fileHandle"></div>
+        <div id="fileHandle">
+          <form action="/upload/" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <label for="file">File</label>
+              <input id="file" name="file" type="file" />
+              <button>Upload</button>
+          </form>
+        </div>
         
         <div id="visual">
             <canvas id="canvas" width="500" height="500"></canvas>
