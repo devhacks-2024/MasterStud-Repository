@@ -104,6 +104,7 @@ function optimize() {
         ctx.font = "$Arial"
         ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
         ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
+        
         optimizeCount++;
     }
 }
