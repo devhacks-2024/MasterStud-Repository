@@ -106,7 +106,7 @@ function optimize() {
                         tagName = newObj.furniture_details[i].tag;
                         for (let j = 0; j < obj.furniture_details.length; j++) {
                             if (obj.furniture_details[j].tag==tagName) {
-                                newObj.furniture_details[i].coordinates_input = obj.furniture_details[i].coordinates_input;
+                                newObj.furniture_details[i].coordinates_input = obj.furniture_details[j].coordinates_input;
                                 break;
                             }
                         }
@@ -121,7 +121,7 @@ function optimize() {
                     const width = coordinates[1].x - coordinates[0].x;
                     const height = coordinates[1].y - coordinates[0].y;
 
-                    ctx.font = "$Arial"
+                    ctx.font = "Arial"
                     ctx.fillStyle = "grey"
                     ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
                     ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
@@ -153,7 +153,7 @@ function optimize() {
         const width = coordinates[1].x - coordinates[0].x;
         const height = coordinates[1].y - coordinates[0].y;
 
-        ctx.font = "$Arial"
+        ctx.font = "Arial"
         ctx.fillStyle = "grey"
         ctx.fillRect(coordinates[0].x, coordinates[0].y, width, height);
         ctx.strokeText(tag, coordinates[0].x + width/2, coordinates[0].y + height/2);
