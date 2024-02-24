@@ -1,3 +1,7 @@
+var optimizeFlag = true;
+var obj;
+var optimizeCount = 0;
+
 function draw(object) {
     const canvas = document.getElementById("canvas");
     if (canvas.getContext) {
@@ -34,20 +38,16 @@ function draw(object) {
 }
 
 function getVisualInput() {
-    // basic from 
-    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
-    // probably will not work from localhost!
+    optimizeFlag = true;
     var xhr = new XMLHttpRequest();
-    // We want to get the IP address, but I don't want to talk too much about CORS!
     xhr.open("GET", "input/");
-    // hey, we can do this, but don't have to (in this case)
     xhr.setRequestHeader("Accept","application/json");
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
         if(xhr.readyState == 4) {
             if (xhr.status == 200) {
                 var content = xhr.responseText;
-                var obj = JSON.parse(content);
+                obj = JSON.parse(content);
                 draw(obj)
             }
             else if (xhr.status == 500){
@@ -59,26 +59,43 @@ function getVisualInput() {
 }
 
 function optimize() {
-    // basic from 
-    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
-    // probably will not work from localhost!
-    var xhr = new XMLHttpRequest();
-    // We want to get the IP address, but I don't want to talk too much about CORS!
-    xhr.open("GET", "optimize/");
-    // hey, we can do this, but don't have to (in this case)
-    xhr.setRequestHeader("Accept","application/json");
+    if (optimizeFlag) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "optimize/");
+        xhr.setRequestHeader("Accept","application/json");
 
-    xhr.onreadystatechange = function() {//Call a function when the state changes.
-        if(xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                var content = xhr.responseText;
-                var obj = JSON.parse(content);
-                draw(obj)
-            }
-            else if (xhr.status == 500){
-                alert("The server is in maintenance, please try again later")
+        xhr.onreadystatechange = function() {//Call a function when the state changes.
+            if(xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var content = xhr.responseText;
+                    obj = JSON.parse(content);
+                    const ctx = canvas.getContext("2d");
+                    const furnitureDetails = obj.furniture_details;
+                    const furniture = furnitureDetails[optimizeCount];
+
+                    const coordinates = furniture.coordinates;
+                    const width = coordinates[1].x - coordinates[0].x;
+                    const height = coordinates[1].y - coordinates[0].y;
+                    ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
+                    optimizeCount++;
+                }
+                else if (xhr.status == 500){
+                    alert("The server is in maintenance, please try again later")
+                }
             }
         }
+        xhr.send();
+        optimizeFlag = false;
     }
-    xhr.send();
+    else {
+        const ctx = canvas.getContext("2d");
+        const furnitureDetails = obj.furniture_details;
+        const furniture = furnitureDetails[optimizeCount];
+
+        const coordinates = furniture.coordinates;
+        const width = coordinates[1].x - coordinates[0].x;
+        const height = coordinates[1].y - coordinates[0].y;
+        ctx.strokeRect(coordinates[0].x, coordinates[0].y, width, height);
+        optimizeCount++;
+    }
 }
